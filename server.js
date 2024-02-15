@@ -2,11 +2,24 @@ const http = require('http')
 const fs = require('fs')
 
 const server = http.createServer((req, res) => {
-    console.log(req.url, req.method)
+    // console.log(path, req.method)
 
     res.setHeader('content-Type', 'text/html')
 
-    fs.readFile('./doc/index.html', (err, data) => {
+     let path ='./doc/'
+    switch(req.url){
+        case '/':
+            path +='index.html'
+            break;
+        case '/about':
+            path +='about.html'
+            break;
+        default:
+            path +='404.html'
+            break;
+    }
+
+    fs.readFile(path, (err, data) => {
         if(err){
             console.log('server error')
             res.end()
