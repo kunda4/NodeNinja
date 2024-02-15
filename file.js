@@ -24,6 +24,15 @@ if(!fs.existsSync('./blog')){
     })
 }
 
+// delete a folder
+if(fs.existsSync('./doc/deleteme.txt')){
+    fs.unlink('./doc/deleteme.txt', (err)=>{
+        if(err){
+            console.log(err)
+        }
+        console.log('file deleted')
+    })
+}
 
 
 
