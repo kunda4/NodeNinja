@@ -13,12 +13,14 @@ fs.writeFile('./doc/mydoc.txt', 'Hello Rwanda', ()=> {
     console.log('file written')
 }) 
 
-//create a folder
-if(fs.existsSync('./blog')){
-    console.log('folder is already exist')
-} else{
+//create a folder or delete a folder
+if(!fs.existsSync('./blog')){
     fs.mkdir('./blog', ()=> {
         console.log('folder is created')
+    })
+} else{
+    fs.rmdir('./blog', ()=> {
+        console.log('folder is deleted')
     })
 }
 
