@@ -1,5 +1,5 @@
 const fs = require ('fs');
-// read file
+//read file
 fs.readFile('./doc/mydoc.txt', (err, data) => {
     if(err){
         console.log(err)
@@ -13,9 +13,15 @@ fs.writeFile('./doc/mydoc.txt', 'Hello Rwanda', ()=> {
     console.log('file written')
 }) 
 
-// create a folder
+//create a folder
+if(fs.existsSync('./blog')){
+    console.log('folder is already exist')
+} else{
+    fs.mkdir('./blog', ()=> {
+        console.log('folder is created')
+    })
+}
 
-fs.mkdir('./assets', ()=> {
-    console.log('folder is created')
-})
+
+
 
