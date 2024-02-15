@@ -8,5 +8,7 @@ fs.readFile('./doc/mydoc.txt', (err, data) => {
     console.log(data.toString())
 })
 
+fs.writeFile('./doc/mydoc.txt', 'Hello Rwanda', ()=> {
+    console.log('file written')
+}) 
 
- 
