@@ -1,13 +1,20 @@
 const http = require('http')
-const { text } = require('stream/consumers')
+const fs = require('fs')
 
 const server = http.createServer((req, res) => {
     console.log(req.url, req.method)
 
     res.setHeader('content-Type', 'text/html')
-    res.write('<p>Hello Africa</p>')
-    res.write('<p>Hello Rwanda</p>')
-    res.end()
+
+    fs.readFile('./doc/index.html', (err, data) => {
+        if(err){
+            console.log('server error')
+            res.end()
+        }else{
+            res.write(data)
+            res.end()
+        }
+    })
 })
 
 server.listen(3000, 'localhost', ()=>{
