@@ -1,7 +1,13 @@
 const http = require('http')
+const { text } = require('stream/consumers')
 
 const server = http.createServer((req, res) => {
-    console.log('The server is Created')
+    console.log(req.url, req.method)
+
+    res.setHeader('content-Type', 'text/html')
+    res.write('<p>Hello Africa</p>')
+    res.write('<p>Hello Rwanda</p>')
+    res.end()
 })
 
 server.listen(3000, 'localhost', ()=>{
