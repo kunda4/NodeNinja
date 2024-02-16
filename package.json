@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "nodemon": "^3.0.3"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "nodeninja",
+  "version": "1.0.0",
+  "main": "file.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
