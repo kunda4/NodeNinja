@@ -13,7 +13,7 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/about', (req, res)=>{
-    res.sendFile('./doc/about.html', {root: __dirname})
+    res.render('about')
 })
 
 app.get('/about-us', (req, res)=>{
@@ -22,5 +22,5 @@ app.get('/about-us', (req, res)=>{
 
 //404 page
 app.use((req, res)=>{
-    res.sendFile('./doc/404.html', {root: __dirname})
+    res.render('404')
 })
