@@ -1,13 +1,16 @@
-const express = require('express')
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
 
-const app = express()
+// connect mongodb
+
+const dbUrl = 'mongodb+srv://user:user12345@mybland.ntkehxo.mongodb.net/mongoUser?retryWrites=true&w=majority&appName=MyBland';
+mongoose.connect(dbUrl)
 
 //regiter view engine
 
 app.set('view engine', 'ejs');
-
 app.listen(3000)
-
 app.get('/', (req, res)=>{
     const blogs = [
         {title: 'the title one', snippet: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'},
@@ -25,6 +28,8 @@ app.get('/about', (req, res)=>{
 app.get('/about-us', (req, res)=>{
     res.redirect('/about', {title:'about'})
 })
+
+app.get('/about')
 
 //404 page
 app.use((req, res)=>{
