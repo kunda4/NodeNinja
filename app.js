@@ -44,8 +44,18 @@ app.get('/find-blog', (req,res) => {
     })
     .catch((err) => {
         console.log(err);
+    });
+});
+
+app.get('/find-one', (req,res) => {
+    Blog.findById('65f0263f5a82133765c91c8f')
+    .then((result) => {
+        res.send(result);
     })
-})
+    .catch((err) => {
+        console.log(err)
+    });
+});
 
 app.get('/about', (req, res)=>{
     res.render('about', {title:'about'})
